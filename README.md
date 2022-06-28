@@ -1,7 +1,7 @@
 # calcium_analyzer
 
 Python version of calcium-analyzer-v10f.pl
-
+[original paper](https://www.nature.com/articles/nprot.2010.169)
 
 # Use
 Copy the calcium_analyzer.py in the same directory as your python script and wright
