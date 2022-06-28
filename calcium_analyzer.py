@@ -45,5 +45,5 @@ class calcium_analyzer:
         self.smooth_filter()
         self.calc_baseline()
         self.calc_RFU()
-        #self.exponential_filter()
+        self.exponential_filter()
         self.signal2raster()
