@@ -13,7 +13,7 @@ analyzer.run(filepath)
 
 The filepath is a path of Multi measure data from ImageJ usually named Results.xls.
 
-Then you can get the same data as perl code as: 
+Then you can get the same data as that from perl code as: 
 ```python
 Mean = analyzer.Mean
 F_0 = analyzer.F_0
