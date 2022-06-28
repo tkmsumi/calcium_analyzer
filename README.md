@@ -7,7 +7,7 @@ Python version of calcium-analyzer-v10f.pl
 Copy the calcium_analyzer.py in the same directory as your python script and wright
 ```python
 from calcium_analyzer import calcium_analyzer
-analyzer = calciumanalyzer
+analyzer = calcium_analyzer()
 analyzer.run(filepath)
 ```
 
