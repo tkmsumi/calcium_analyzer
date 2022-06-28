@@ -1,3 +1,5 @@
+from scipy import signal
+import numpy as np
 class calcium_analyzer:
     def __init__(self, dt=0.05, tau0=0.6, tau1=0.8, tau2=60, theta=0.1):
         self.N = 0
@@ -32,7 +34,7 @@ class calcium_analyzer:
         self.RFU = (self.Mean - self.F_0) / self.F_0
     def exponential_filter(self):
         tau = np.arange(101)
-        W = 1/tau0*np.exp(-tau/tau0)
+        W = 1/self.tau0*np.exp(-tau/self.tau0)
         W = np.matrix(W)
         self.sm_RFU = signal.convolve2d(self.RFU, W, mode="full")[:, :-100]
     def signal2raster(self):
