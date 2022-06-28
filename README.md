@@ -1,6 +1,6 @@
 # calcium_analyzer
 
-python version of calcium-analyzer-v10f.pl
+Python version of calcium-analyzer-v10f.pl
 
 
 # Use
