@@ -11,7 +11,7 @@ analyzer = calcium_analyzer()
 analyzer.run(filepath)
 ```
 
-filepathはImageJのMulti measureで得られたファイル（通常Results.xls）のパスを入れてください。
+filepathにはImageJのMulti measureで出力したファイル（通常Results.xls）のパスを入れてください。
 
 以下のようにperlのスクリプトと同じ値が得られます: 
 ```python
