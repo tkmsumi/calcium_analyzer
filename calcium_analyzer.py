@@ -1,11 +1,12 @@
 from scipy import signal
 import numpy as np
+import pandas as pd
 class calcium_analyzer:
-    def __init__(self, dt=0.05, tau0=0.6, tau1=0.8, tau2=60, theta=0.1):
+    def __init__(self, dt=0.05, alpha=0.6, tau1=0.8, tau2=60, theta=0.1):
         self.N = 0
         self.T = 0
         self.dt = dt
-        self.tau0 = int(tau0/dt)
+        self.alpha = 1-alpha
         self.tau1 = int(tau1/dt)
         self.tau2 = int(tau2/dt/2)
         self.theta = theta/dt
@@ -33,14 +34,14 @@ class calcium_analyzer:
     def calc_RFU(self):       
         self.RFU = (self.Mean - self.F_0) / self.F_0
     def exponential_filter(self):
-        tau = np.arange(101)
-        W = 1/self.tau0*np.exp(-tau/self.tau0)
-        W = np.matrix(W)
-        self.sm_RFU = signal.convolve2d(self.RFU, W, mode="full")[:, :-100]
+        self.sm_RFU = np.zeros((self.N,self.T))
+        for i in range(self.N):
+            df = pd.DataFrame({'cell': self.RFU[i]})
+            self.sm_RFU[i,:] = df.ewm(alpha=self.alpha).mean()["cell"]
     def signal2raster(self):
         W = [1,0,-1]
         W = np.matrix(W)
-        self.diff = signal.convolve2d(self.RFU, W, mode="same")/(2*self.dt)
+        self.diff = signal.convolve2d(self.sm_RFU, W, mode="same")/(2*self.dt)
         self.raster = np.where(self.diff > self.theta, 1, 0)
     def run(self, filename):
         self.extract_raw_data(filename)
