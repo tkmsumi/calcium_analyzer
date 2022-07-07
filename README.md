@@ -22,6 +22,3 @@ sm_RFU = analyzer.sm_RFU
 diff = analyzer.diff
 ```
 
-# Problem
-The current code generates the different [sm_RFU, diff] from that perl code generates.
-The exponential_filter is something wrong.
