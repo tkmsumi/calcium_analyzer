@@ -1,19 +1,19 @@
 # calcium_analyzer
 
-Python version of calcium-analyzer-v10f.pl
+calcium-analyzer-v10f.plのpython版です。
 [original paper](https://www.nature.com/articles/nprot.2010.169)
 
 # Use
-Copy the calcium_analyzer.py in the same directory as your python script and wright
+git cloneかdownloadでcalcium_analyzer.pyを作業用スクリプトと同じフォルダに入れて以下のように記述します。
 ```python
 from calcium_analyzer import calcium_analyzer
 analyzer = calcium_analyzer()
 analyzer.run(filepath)
 ```
 
-The filepath is a path of Multi measure data from ImageJ usually named Results.xls.
+filepathはImageJのMulti measureで得られたファイル（通常Results.xls）のパスを入れてください。
 
-Then you can get the same data as that from perl code as: 
+以下のように書くとperlのスクリプトと同じ値が得られます: 
 ```python
 Mean = analyzer.Mean
 F_0 = analyzer.F_0
