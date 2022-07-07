@@ -13,7 +13,7 @@ analyzer.run(filepath)
 
 filepathはImageJのMulti measureで得られたファイル（通常Results.xls）のパスを入れてください。
 
-以下のように書くとperlのスクリプトと同じ値が得られます: 
+以下のようにperlのスクリプトと同じ値が得られます: 
 ```python
 Mean = analyzer.Mean
 F_0 = analyzer.F_0
